@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "Name": {
+      "title": "Name",
+      "description": "A name added to the system for email generation.",
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string", "description": "The first name." },
+        "lastName": { "type": "string", "description": "The last name." },
+        "gender": { "type": "string", "enum": ["male", "female"], "description": "The gender of the name." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the name was added." }
+      },
+      "required": ["firstName", "lastName", "gender", "createdAt"]
+    },
+    "GeneratedEmail": {
+      "title": "Generated Email",
+      "description": "An email generated from a name.",
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string", "description": "The first name used." },
+        "lastName": { "type": "string", "description": "The last name used." },
+        "email": { "type": "string", "description": "The generated email address." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the email was generated." }
+      },
+      "required": ["firstName", "lastName", "email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/names/{nameId}": {
+      "schema": "Name",
+      "description": "Collection of names for generation."
+    },
+    "/generated_emails/{emailId}": {
+      "schema": "GeneratedEmail",
+      "description": "Collection of generated emails."
+    }
+  }
+}

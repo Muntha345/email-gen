@@ -1,0 +1,5 @@
+{
+  "name": "Email Generator Assistant",
+  "description": "Generates email addresses from names stored in Firebase, checks for duplicates, and provides a secure, real-time history of generated emails.",
+  "requestFramePermissions": []
+}
